@@ -54,6 +54,11 @@ Step "2/3 Сервер (PyInstaller)" "Backend" {
 }
 Step "3/3 Установщик (electron-builder)" "Desktop" {
     npm install; if ($LASTEXITCODE -ne 0) { return }
+    # Electron скачивается отдельно (install.js); на чистой машине его может не оказаться
+    if (-not (Test-Path "node_modules\electron\dist\electron.exe")) {
+        Write-Host "Загрузка Electron..." -ForegroundColor Cyan
+        node node_modules\electron\install.js; if ($LASTEXITCODE -ne 0) { return }
+    }
     npm run dist
 }
 # дальше при разработке (python -m tais) — снова полная версия

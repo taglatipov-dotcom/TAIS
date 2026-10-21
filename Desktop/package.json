@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "set TAIS_DEV_URL=http://127.0.0.1:5173&& electron .",
-    "dist": "electron-builder --win nsis"
+    "dist": "electron-builder --win nsis --publish never"
   },
   "devDependencies": {
     "electron": "44.8.0",
