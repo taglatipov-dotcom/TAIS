@@ -1,4 +1,5 @@
 # Выпуск версии: git tag v0.1.0 && git push origin v0.1.0
+# или вручную: вкладка Actions → «Выпуск» → Run workflow (тег v<версия из Desktop/package.json>).
 # Собирает установщик Windows и APK для Android и публикует их в Releases.
 name: Выпуск
 
@@ -78,16 +79,24 @@ jobs:
   release:
     name: Публикация в Releases
     needs: [windows, android]
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - name: Номер версии
+        id: ver
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then echo "tag=$GITHUB_REF_NAME" >> $GITHUB_OUTPUT
+          else echo "tag=v$(node -p "require('./Desktop/package.json').version")" >> $GITHUB_OUTPUT; fi
       - uses: actions/download-artifact@v4
         with:
           path: out
           merge-multiple: true
       - uses: softprops/action-gh-release@v2
         with:
-          name: TAIS ${{ github.ref_name }}
+          tag_name: ${{ steps.ver.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: TAIS ${{ steps.ver.outputs.tag }}
           files: out/*
           body: |
             **Windows:** скачайте `TAIS-Setup-*.exe`, запустите и следуйте установщику.
@@ -95,4 +104,4 @@ jobs:
 
             **Android:** `TAIS-mobile.apk` — скопируйте на телефон и установите.
 
-            Инструкция: [Инструкция пользователя.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/Инструкция%20пользователя.md)
+            Инструкция: [Инструкция пользователя.md](https://github.com/${{ github.repository }}/blob/${{ steps.ver.outputs.tag }}/Инструкция%20пользователя.md)
