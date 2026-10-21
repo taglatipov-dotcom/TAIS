@@ -1,0 +1,15 @@
+# Текстовые файлы хранятся в репозитории с LF, на Windows git выдаёт CRLF
+* text=auto
+# PowerShell и bat — всегда CRLF (Windows PowerShell 5 так надёжнее)
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+gradlew text eol=lf
+# Двоичные
+*.dwg binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.jar binary
+*.zip binary

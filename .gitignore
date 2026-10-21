@@ -1,0 +1,46 @@
+# ── Окружение и зависимости ─────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+node_modules/
+
+# ── Результаты сборки (собираются build.ps1 / build-android.ps1) ──
+Backend/build/
+Backend/dist/
+Backend/tais/static/
+Backend/tais/_build_info.py
+Frontend/dist/
+Desktop/dist/
+Mobile/dist/
+*.exe
+*.blockmap
+*.apk
+*.aab
+
+# ── Временные и служебные файлы ─────────────────────────
+Backend/tools/preview/
+Backend/tools/table_report.txt
+*.bak
+*.dwg.original
+*.log
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ── IDE ─────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+
+# ── Локальные заметки (не для репозитория) ──────────────
+CLAUDE.md
+.claude/
+docs/План работ.md
+
+# ── Копии файлов в корне (оригиналы — в Library/ и docs/) ──
+/img.png
+/Веса элементов.csv
+/TAIS — инструкция пользователя.pdf
+/TAIS — презентация.pdf
+Frontend/index.js

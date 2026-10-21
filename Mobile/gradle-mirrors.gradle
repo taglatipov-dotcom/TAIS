@@ -1,0 +1,24 @@
+// Зеркала Maven-репозиториев (Aliyun) — если google()/mavenCentral() недоступны.
+// Подключается из build-android.ps1: gradlew --init-script ..\gradle-mirrors.gradle
+def mirrors = [
+    'https://maven.aliyun.com/repository/google',
+    'https://maven.aliyun.com/repository/central',
+    'https://maven.aliyun.com/repository/gradle-plugin',
+]
+
+def prepend = { repos ->
+    mirrors.reverseEach { u ->
+        def r = repos.maven { url u }
+        repos.remove(r)
+        repos.add(0, r)
+    }
+}
+
+beforeSettings { settings ->
+    prepend(settings.pluginManagement.repositories)
+}
+
+allprojects {
+    prepend(buildscript.repositories)
+    prepend(repositories)
+}

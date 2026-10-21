@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>TAIS — презентация</title>
+<link rel="stylesheet" href="common.css">
+<style>
+@page{size:960px 540px;margin:0}
+body{font-size:12px;line-height:1.45}
+.slide{width:960px;height:540px;position:relative;overflow:hidden;break-after:page;padding:40px 48px 36px;background:#fff}
+.slide:last-child{break-after:auto}
+.pn{position:absolute;right:30px;bottom:18px;font-size:9px;color:var(--ink3);display:flex;align-items:center;gap:6px}
+.pn img{width:14px;height:14px}
+h1{font-family:"Inter Display",Inter;font-size:30px;line-height:1.12;margin:6px 0 10px;letter-spacing:-.015em;font-weight:700}
+h1.s{font-size:25px}
+.lead{color:var(--ink2);font-size:12.5px;max-width:760px}
+.tag{display:inline-block;background:var(--orange);color:#fff;font-size:9px;font-weight:700;border-radius:4px;padding:2px 7px;letter-spacing:.08em;margin-left:8px;vertical-align:3px}
+.cols{display:grid;gap:22px;align-items:start}
+.bul{list-style:none;padding:0;margin:0}
+.bul li{position:relative;padding-left:16px;margin:0 0 9px;font-size:12px}
+.bul li::before{content:"";position:absolute;left:0;top:6px;width:7px;height:7px;border-radius:2px;background:var(--teal)}
+.chk li::before{content:"✓";width:15px;height:15px;border-radius:50%;background:#e3f3e7;color:#1f7a3a;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;top:1px;left:-2px}
+.chk li{padding-left:20px}
+.step{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:var(--teal)}
+.step b{display:inline-flex;width:20px;height:20px;border-radius:6px;background:var(--teal);color:#fff;align-items:center;justify-content:center;font-size:11px}
+.card{background:var(--fill);border-radius:14px;padding:14px 16px;font-size:11px;color:var(--ink2)}
+.card b{display:block;color:var(--ink);font-size:13px;margin-bottom:5px}
+.card .bar{width:26px;height:3px;border-radius:2px;background:var(--teal);margin-bottom:10px}
+.tile{background:var(--fill);border-radius:14px;padding:8px 8px 10px;display:flex;flex-direction:column}
+.tile .im{background:#fff;border-radius:10px;flex:1;display:flex;align-items:center;justify-content:center;padding:6px;min-height:0}
+.tile .im img{max-width:100%;max-height:100%}
+.tile .t{font-weight:700;font-size:12px;margin:7px 4px 0}
+.tile .t span{font-weight:500;color:var(--ink3);font-size:10px;margin-left:4px}
+.tile .d{font-size:10px;color:var(--ink2);margin:2px 4px 0;line-height:1.35}
+.shot{border-radius:10px}
+.step b{display:inline-flex!important;font-size:11px!important;color:#fff!important;margin:0!important}
+.clip{border-radius:10px;overflow:hidden;border:1px solid var(--line);box-shadow:0 6px 22px rgba(20,40,50,.10)}
+.clip img{display:block;width:100%}
+.dark{background:linear-gradient(150deg,#21737d,#164f57);color:#fff}
+.dark .eyebrow{color:#bfe3e7}
+.num{font-family:"Inter Display";font-size:34px;font-weight:800;color:var(--teal);line-height:1}
+</style></head><body>
+
+<!-- 1 -->
+<div class="slide dark" style="padding:0">
+  <div style="position:absolute;right:-40px;top:-60px;width:520px;height:520px;border-radius:90px;background:rgba(255,255,255,.05)"></div>
+  <div style="position:absolute;left:56px;top:56px"><img src="a/logo.svg" style="width:74px;height:74px;background:#fff;border-radius:20px;padding:9px"></div>
+  <div style="position:absolute;left:56px;top:190px;width:430px">
+    <div style="font-family:'Inter Display';font-size:84px;font-weight:800;letter-spacing:-.02em;line-height:1">TAIS</div>
+    <div style="font-size:16px;margin-top:16px;opacity:.92;line-height:1.45">Исполнительные схемы строительных лесов «Союз» в nanoCAD — по акту, автоматически</div>
+    <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+      <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 11px;font-size:10px">Авто-режим</span>
+      <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 11px;font-size:10px">Все типы конструкций</span>
+      <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 11px;font-size:10px">DWG · PDF · спецификация</span>
+      <span style="border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 11px;font-size:10px">Аналитика</span>
+    </div>
+  </div>
+  <div style="position:absolute;right:40px;top:40px;width:420px;height:460px;background:#fff;border-radius:22px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.25)">
+    <img src="a/g_radial_wid.svg" style="width:100%;height:100%;object-fit:contain">
+  </div>
+  <div style="position:absolute;left:56px;bottom:30px;font-size:9px;letter-spacing:.14em;opacity:.65">ВЕРСИЯ 0.1 · WINDOWS · NANOCAD · ОКТЯБРЬ 2026</div>
+</div>
+
+<!-- 2 -->
+<div class="slide">
+  <div class="eyebrow">Задача</div>
+  <h1>Каждый акт — это отдельный чертёж,<br>который собирают вручную</h1>
+  <div class="cols" style="grid-template-columns:repeat(4,1fr);margin-top:34px;gap:16px">
+    <div style="border-top:2px solid var(--ink);padding-top:10px"><b style="font-size:13px">Конструкция</b><p style="color:var(--ink2);font-size:11px">Разложить стойки, ригели, настилы, диагонали и лестницы по правилам сборки</p></div>
+    <div style="border-top:2px solid var(--ink);padding-top:10px"><b style="font-size:13px">Виды и размеры</b><p style="color:var(--ink2);font-size:11px">Изометрия, виды спереди, сбоку и сверху, масштаб, высотные отметки</p></div>
+    <div style="border-top:2px solid var(--ink);padding-top:10px"><b style="font-size:13px">Надписи</b><p style="color:var(--ink2);font-size:11px">Номер ИС, акт, завод, место, таблица габаритов и площадь</p></div>
+    <div style="border-top:2px solid var(--ink);padding-top:10px"><b style="font-size:13px">Спецификация</b><p style="color:var(--ink2);font-size:11px">Посчитать элементы и вес, вставить ситуационный план, распечатать A3 и A4</p></div>
+  </div>
+  <div style="margin-top:44px;background:var(--warn);border-left:3px solid var(--orange);border-radius:8px;padding:16px 20px;font-size:13px;max-width:760px">Работа повторяется от акта к акту: меняются размеры и реквизиты, а порядок действий одинаковый. Значит, его можно поручить программе — и не по одному акту, а сразу всю пачку.</div>
+  <div class="pn"><img src="a/logo.svg">2</div>
+</div>
+
+<!-- 3 -->
+<div class="slide">
+  <div class="eyebrow">Решение</div>
+  <h1>Акт на входе — готовая схема на выходе</h1>
+  <p class="lead">Вы вносите данные акта, TAIS рассчитывает конструкцию по правилам сборки и сам строит чертёж в nanoCAD на основе готового шаблона.</p>
+  <div style="display:grid;grid-template-columns:1fr 18px 1fr 18px 1fr 18px 1fr;gap:6px;align-items:center;margin-top:40px">
+    <div class="card" style="height:190px"><div class="eyebrow" style="color:var(--ink3)">Вы вводите</div><b style="margin-top:6px">Акт</b>Номер и дата, завод, цех, установка, размеры конструкций, картинка ситуационного плана</div>
+    <div style="text-align:center;color:var(--ink3)">→</div>
+    <div class="card" style="height:190px;background:var(--teal);color:#d9eef0"><div class="eyebrow" style="color:#bfe3e7">TAIS считает</div><b style="margin-top:6px;color:#fff">Модель лесов</b>Тип конструкции, пролёты, ярусы, настилы, ригели, диагонали, вход, пристройки, кольцо — и спецификация с весом</div>
+    <div style="text-align:center;color:var(--ink3)">→</div>
+    <div class="card" style="height:190px"><div class="eyebrow" style="color:var(--ink3)">nanoCAD строит</div><b style="margin-top:6px">Чертёж</b>Копия шаблона с конструкцией, видами, размерами и заполненной основной надписью</div>
+    <div style="text-align:center;color:var(--ink3)">→</div>
+    <div class="card" style="height:190px"><div class="eyebrow" style="color:var(--ink3)">Результат</div><b style="margin-top:6px">Файлы</b>DWG и PDF A3+A4 в папке схем, готово к сдаче и печати<div style="margin-top:12px;display:flex;gap:6px"><span class="mono">DWG</span><span class="mono">PDF</span></div></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">3</div>
+</div>
+
+<!-- 4 -->
+<div class="slide">
+  <div class="eyebrow">Как работать</div>
+  <h1>Три шага от пачки актов<br>до распечатанных схем</h1>
+  <div class="cols" style="grid-template-columns:repeat(3,1fr);margin-top:34px;gap:18px">
+    <div class="card" style="height:220px"><div class="step"><b>1</b></div><b style="margin-top:14px">Внести акты</b>Реквизиты, одна или несколько конструкций любого типа, ситуационный план через Ctrl+V. «Сохранить и добавить ещё» — для пачки актов с одного объекта.</div>
+    <div class="card" style="height:220px"><div class="step"><b style="background:var(--orange)">2</b></div><b style="margin-top:14px">Назначить номера ИС</b>Ввести стартовый номер — все акты без номера пронумеруются по порядку. Цех и установка сокращаются автоматически.</div>
+    <div class="card" style="height:220px;background:#e9f6ee"><div class="step"><b style="background:var(--green)">3</b></div><b style="margin-top:14px">Отработать очередь</b>По одному акту — «Построить в nanoCAD», или <b style="display:inline;font-size:11px;color:#1f7a3a">«Авто»</b> — вся очередь строится, печатается и сохраняется сама.</div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">4</div>
+</div>
+
+<!-- 5 -->
+<div class="slide">
+  <div class="cols" style="grid-template-columns:250px 1fr;gap:26px">
+    <div>
+      <div class="step"><b>1</b>Акты</div>
+      <h1 class="s" style="margin-top:12px">Все акты<br>в одном списке</h1>
+      <ul class="bul" style="margin-top:18px">
+        <li>Статусы <b>«В работе»</b> и <b>«Готово»</b>, фильтр по ним</li>
+        <li><b>Номер ИС</b> и <b>площадь</b> считаются сразу</li>
+        <li><b>Последний номер ИС</b> — над списком, листать до конца не нужно<span class="tag" style="font-size:7.5px;padding:1px 5px;vertical-align:1px">НОВОЕ</span></li>
+        <li>Конструкции любого типа — в одной строке акта</li>
+        <li>Видно, у какого акта есть ситуационный план</li>
+        <li>Двойной щелчок — открыть и поправить</li>
+      </ul>
+    </div>
+    <img class="shot" src="a/acts.jpg" style="width:100%;margin-top:60px">
+  </div>
+  <div class="pn"><img src="a/logo.svg">5</div>
+</div>
+
+<!-- 6 -->
+<div class="slide">
+  <div class="cols" style="grid-template-columns:250px 1fr;gap:26px">
+    <div>
+      <div class="step"><b>1</b>Новый акт</div>
+      <h1 class="s" style="margin-top:12px">Форма акта —<br>без лишних полей</h1>
+      <ul class="bul" style="margin-top:18px">
+        <li><b>Реквизиты:</b> номер, дата, завод, цех, установка</li>
+        <li><b>Конструкции:</b> тип и размеры; уширения и балконы пристраиваются к основной — грань и отступ</li>
+        <li><b>Ситуационный план</b> — вставка картинки из буфера</li>
+        <li>Справа — <b>основная надпись</b> так, как она попадёт в чертёж</li>
+      </ul>
+    </div>
+    <div class="clip" style="height:470px;margin-top:-6px"><img src="a/edit_wid.jpg"></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">6</div>
+</div>
+
+<!-- 7 -->
+<div class="slide">
+  <div class="cols" style="grid-template-columns:240px 1fr;gap:26px">
+    <div>
+      <div class="step"><b>3</b>Отработка</div>
+      <h1 class="s" style="margin-top:12px">Проверить<br>и построить</h1>
+      <ul class="bul" style="margin-top:18px">
+        <li>Основная надпись, площадь и план — на одном экране</li>
+        <li><b>Виды спереди, сбоку и сверху</b> и спецификация до построения</li>
+        <li><b>«Обратите внимание»</b> — что программа перестроила или просит проверить на месте</li>
+        <li>Одна кнопка — <b>«Построить в nanoCAD»</b></li>
+      </ul>
+    </div>
+    <div class="clip" style="height:470px;margin-top:-10px"><img src="a/work_radial.jpg"></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">7</div>
+</div>
+
+<!-- 8 -->
+<div class="slide">
+  <div class="eyebrow">Построение</div>
+  <h1>Что программа делает сама по одной кнопке</h1>
+  <div class="cols" style="grid-template-columns:1.1fr .9fr;gap:30px;margin-top:20px">
+    <ul class="bul chk">
+      <li>Открывает nanoCAD и создаёт <b>копию шаблона</b> — сам шаблон не меняется</li>
+      <li>Вставляет <b>конструкции из блоков</b> шаблона, несколько — друг за другом</li>
+      <li>Настраивает <b>виды листа A3</b>: масштаб, центр, размеры и высотные отметки</li>
+      <li>Заполняет <b>основную надпись</b>, таблицу габаритов и <b>спецификацию</b> с весом</li>
+      <li>Вставляет <b>ситуационный план</b> и сохраняет DWG с именем по номеру ИС</li>
+      <li>Печатает листы <b>A3 и A4</b> или сохраняет их в один <b>PDF</b> рядом с DWG</li>
+    </ul>
+    <img class="shot" src="a/done_modal.png" style="width:100%;box-shadow:0 8px 26px rgba(20,40,50,.12)">
+  </div>
+  <div class="pn"><img src="a/logo.svg">8</div>
+</div>
+
+<!-- 9 АВТО -->
+<div class="slide">
+  <div class="eyebrow">Авто-режим<span class="tag">НОВОЕ</span></div>
+  <h1>Вся очередь — одной кнопкой «Авто»</h1>
+  <div class="cols" style="grid-template-columns:1fr 330px;gap:30px;margin-top:8px">
+    <div>
+      <p class="lead" style="margin:0 0 18px">Все акты «В работе» строятся по порядку, без окна после каждого акта. Запустили — и занимаетесь своими делами.</p>
+      <ul class="bul chk">
+        <li><b>Строит, печатает и закрывает</b> каждую схему с сохранением — DWG и PDF рядом</li>
+        <li>Окно nanoCAD <b>не выскакивает</b> на передний план — можно работать в других программах</li>
+        <li>Ход виден на «Отработке» и в шапке: <b>«Авто: 2 из 5»</b>; можно <b>остановить</b> после текущего акта</li>
+        <li>Акт без номера ИС или конструкций <b>пропускается</b> — остальные строятся</li>
+        <li>В конце — <b>одно окно с итогом</b>, TAIS мигает в панели задач</li>
+      </ul>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <div class="card" style="padding:10px 14px;flex:1"><div class="num">1</div><div style="margin-top:4px">кнопка на всю пачку</div></div>
+        <div class="card" style="padding:10px 14px;flex:1"><div class="num">0</div><div style="margin-top:4px">окон между актами</div></div>
+        <div class="card" style="padding:10px 14px;flex:1"><div class="num">DWG+PDF</div><div style="margin-top:4px">на каждый акт</div></div>
+      </div>
+    </div>
+    <img class="shot" src="a/auto_modal.jpg" style="width:100%;max-height:420px;object-fit:contain;box-shadow:0 10px 30px rgba(20,40,50,.15)">
+  </div>
+  <div class="pn"><img src="a/logo.svg">9</div>
+</div>
+
+<!-- 10 АВТО -->
+<div class="slide" style="background:var(--fill)">
+  <div class="eyebrow">Авто-режим<span class="tag">НОВОЕ</span></div>
+  <h1 class="s">Ход виден на экране, итог — в одном окне</h1>
+  <div class="cols" style="grid-template-columns:1.35fr 1fr;gap:22px;margin-top:10px">
+    <div>
+      <img class="shot" src="a/auto_progress.jpg" style="width:100%;box-shadow:0 10px 30px rgba(20,40,50,.12)">
+      <div style="font-size:10.5px;color:var(--ink2);margin-top:12px;line-height:1.5">Текущий акт, полоска и кнопка «Остановить». Остальные экраны TAIS доступны — можно вносить новые акты, пока очередь строится.</div>
+    </div>
+    <div>
+      <img class="shot" src="a/auto_done.jpg" style="height:330px;display:block;margin:0 auto;box-shadow:0 10px 30px rgba(20,40,50,.12)">
+      <div style="font-size:10.5px;color:var(--ink2);margin-top:12px;line-height:1.5">Для каждого акта — номер ИС и пути к DWG и PDF или причина ошибки. Без nanoCAD или шаблона авто-режим останавливается сразу.</div>
+    </div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">10</div>
+</div>
+
+<!-- АНАЛИТИКА 1 -->
+<div class="slide">
+  <div class="cols" style="grid-template-columns:250px 1fr;gap:26px">
+    <div>
+      <div class="eyebrow">Аналитика<span class="tag">НОВОЕ</span></div>
+      <h1 class="s" style="margin-top:12px">Сколько сделано —<br>видно сразу</h1>
+      <ul class="bul" style="margin-top:18px">
+        <li><b>Схем сегодня, за неделю</b> и за период — со средним в день</li>
+        <li><b>Площадь</b> готовых схем, акты <b>в работе</b> и без номера ИС</li>
+        <li><b>Последний номер ИС</b> — щелчок открывает акт</li>
+        <li>График <b>«Схем за день»</b> за 14, 30 или 90 дней: линия среднего и рекордный день</li>
+        <li>Переключатель <b>«Схемы / Площадь»</b>, при наведении — дата и значение</li>
+      </ul>
+    </div>
+    <div class="clip" style="margin-top:6px"><img src="a/analytics_top.jpg"></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">11</div>
+</div>
+
+<!-- АНАЛИТИКА 2 -->
+<div class="slide" style="background:var(--fill)">
+  <div class="eyebrow">Аналитика<span class="tag">НОВОЕ</span></div>
+  <h1 class="s">Структура работы — в круговых диаграммах</h1>
+  <div class="cols" style="grid-template-columns:1fr 230px;gap:22px;margin-top:10px">
+    <img class="shot" src="a/analytics_donuts.jpg" style="width:100%;box-shadow:0 10px 30px rgba(20,40,50,.12)">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card" style="background:#fff"><div class="bar"></div><b>Статус актов</b>сколько готово и сколько ещё в работе</div>
+      <div class="card" style="background:#fff"><div class="bar" style="background:var(--orange)"></div><b>Типы конструкций</b>башенные, фасадные, уширения, балконы, радиальные</div>
+      <div class="card" style="background:#fff"><div class="bar" style="background:var(--blue)"></div><b>Заводы и цеха</b>где больше всего лесов</div>
+      <div style="font-size:10px;color:var(--ink2);line-height:1.45">Наведите на сектор — в центре кольца появится его доля. Данные обновляются после каждой построенной схемы.</div>
+    </div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">12</div>
+</div>
+
+<!-- 11 ВСЕ ТИПЫ -->
+<div class="slide">
+  <div class="eyebrow">Конструкции<span class="tag">ВСЕ ТИПЫ</span></div>
+  <h1 class="s">Любая конструкция из акта — одной строкой</h1>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:180px 180px;gap:12px;margin-top:12px">
+    <div class="tile"><div class="im"><img src="a/g_tower.svg"></div><div class="t">Башенные</div><div class="d">Отдельная башня у колонны или аппарата</div></div>
+    <div class="tile"><div class="im"><img src="a/g_facade.svg"></div><div class="t">Фасадные</div><div class="d">Длинные леса вдоль стены, пролёты до 3 м</div></div>
+    <div class="tile"><div class="im"><img src="a/g_radial.svg"></div><div class="t">Радиальные</div><div class="d">Кольцо вокруг резервуара, колонны, трубы</div></div>
+    <div class="tile"><div class="im"><img src="a/g_tower_wid.svg"></div><div class="t">Уширение</div><div class="d">Ещё ряд стоек к любой грани, без настилов</div></div>
+    <div class="tile"><div class="im"><img src="a/g_facade_balc.svg"></div><div class="t">Балкон</div><div class="d">Консольно-опорные: настил наружу по верху</div></div>
+    <div class="tile" style="background:var(--teal);color:#fff"><div class="im" style="background:rgba(255,255,255,.08);flex-direction:column;gap:6px"><div style="font-family:'Inter Display';font-size:40px;font-weight:800">Авто</div><div style="font-size:10px;opacity:.85;text-align:center;padding:0 16px">L/B &lt; 1,5 или стороны ≤ 3 м → башенные,<br>иначе → фасадные</div></div><div class="t">Автоматически</div><div class="d" style="color:#d9eef0">Тип можно не выбирать</div></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">13</div>
+</div>
+
+<!-- 12 ПРИСТРОЙКИ -->
+<div class="slide">
+  <div class="eyebrow">Пристройки<span class="tag">НОВОЕ</span></div>
+  <h1 class="s">Уширения и балконы — к своим лесам или к уже стоящим</h1>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:176px 176px;gap:12px;margin-top:10px">
+    <div class="tile"><div class="im"><img src="a/g_tower_wid.svg"></div><div class="t">Башня + уширение <span>вход перенесён назад</span></div></div>
+    <div class="tile"><div class="im"><img src="a/g_facade_wid_end.svg"></div><div class="t">Уширение на торце <span>вынос 1,5 м, h 6,2</span></div></div>
+    <div class="tile"><div class="im"><img src="a/g_facade_balc.svg"></div><div class="t">Фасад + балкон <span>перила сняты для прохода</span></div></div>
+    <div class="tile"><div class="im"><img src="a/g_wid_balc.svg"></div><div class="t">Балкон над уширением <span>одна сторона</span></div></div>
+    <div class="tile"><div class="im"><img src="a/g_wid_alone.svg"></div><div class="t">Уширение к стоящим <span>стоящие — серым</span></div></div>
+    <div class="tile"><div class="im"><img src="a/g_balc_alone.svg"></div><div class="t">Балкон к стоящим <span>по их высоте</span></div></div>
+  </div>
+  <div style="font-size:10px;color:var(--ink2);margin-top:9px">Грань и отступ задаются в акте. Края пристройки не на стойках — пролёты основной перестраиваются сами, программа предупреждает.</div>
+  <div class="pn"><img src="a/logo.svg">14</div>
+</div>
+
+<!-- 13 РАДИАЛЬНЫЕ -->
+<div class="slide">
+  <div class="eyebrow">Радиальные леса<span class="tag">НОВОЕ</span></div>
+  <h1 class="s">Кольцо вокруг резервуара — по одной длине</h1>
+  <div class="cols" style="grid-template-columns:250px 1fr 1fr;gap:16px;margin-top:10px">
+    <ul class="bul" style="margin-top:6px">
+      <li><b>Длина кольца</b> — сумма ячеек по внутренней стороне; радиус программа считает сама</li>
+      <li>Ячейки подбираются <b>одного или двух размеров</b>, равномерно по кольцу</li>
+      <li>Снаружи зазоры закрыты <b>ригелями-вставками</b>, клин в настиле — <b>стальными планками</b></li>
+      <li><b>Уширения наружу</b> у каждой ячейки — вынос и высота</li>
+      <li>Разница вставки и зазора — в «Обратите внимание»</li>
+    </ul>
+    <div class="tile" style="height:400px"><div class="im"><img src="a/g_radial_wid.svg"></div><div class="t">30 × 1,5 × 8 м + уширения 1 м</div><div class="d">20 ячеек по 1,5 м, поворот 18°, R 4,8 м</div></div>
+    <div class="tile" style="height:400px"><div class="im"><img src="a/g_radial_wid_plan.svg"></div><div class="t">Вид сверху</div><div class="d">Настилы, планки в клиньях, вставки снаружи</div></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">15</div>
+</div>
+
+<!-- 14 ГАЛЕРЕЯ -->
+<div class="slide" style="background:var(--fill)">
+  <div class="eyebrow">Примеры построений<span class="tag">НОВОЕ</span></div>
+  <h1 class="s">От низкой башни до кольца 60 метров</h1>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;grid-template-rows:186px 186px;gap:12px;margin-top:10px">
+    <div class="tile" style="background:#fff"><div class="im"><img src="a/g_low.svg"></div><div class="t">3×2×3,2 <span>лестница с земли</span></div></div>
+    <div class="tile" style="background:#fff"><div class="im"><img src="a/g_facade_low.svg"></div><div class="t">6×1×4,2 <span>нижний ярус — ступенька</span></div></div>
+    <div class="tile" style="background:#fff"><div class="im"><img src="a/g_radial_plan.svg"></div><div class="t">Кольцо 24 м <span>8 ячеек, 45°</span></div></div>
+    <div class="tile" style="background:#fff;grid-row:span 2"><div class="im"><img src="a/g_radial_big.svg"></div><div class="t">Кольцо 60 × 1 × 10,2 м</div><div class="d">24 ячейки по 2,5 м, R 9,6 м, поворот 15°, вставки 0,25 м</div></div>
+    <div class="tile" style="background:#fff"><div class="im"><img src="a/g_tower.svg"></div><div class="t">3×2×8,2 <span>башенные</span></div></div>
+    <div class="tile" style="background:#fff"><div class="im"><img src="a/g_facade.svg"></div><div class="t">12×1×10,2 <span>фасадные</span></div></div>
+    <div class="tile" style="background:#fff"><div class="im"><img src="a/g_radial.svg"></div><div class="t">24×1×6,2 <span>радиальные</span></div></div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">16</div>
+</div>
+
+<!-- 15 ПРАВИЛА -->
+<div class="slide">
+  <div class="eyebrow">Генератор</div>
+  <h1 class="s">Конструкция рассчитывается по правилам сборки лесов</h1>
+  <p class="lead" style="margin:0">Правила подобраны по реальным чертежам из архива и описаны в документе «Правила сборки лесов».</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px">
+    <div class="card" style="height:118px"><div class="bar"></div><b>Пролёты</b>Из 0,75 / 1,0 / 1,5 / 2,0 / 2,5 / 3,0 м: минимум пролётов, затем минимум разных размеров</div>
+    <div class="card" style="height:118px"><div class="bar" style="background:var(--orange)"></div><b>Высота и стойки</b>Высота кратна 0,5 м, добирается сдвигом: стойки по 3,0 м снизу, короткая — наверху</div>
+    <div class="card" style="height:118px"><div class="bar" style="background:var(--blue)"></div><b>Настилы</b>Сверху вниз: верхний на 1,5 м ниже верха стоек, дальше через 2,0 м, все с люком</div>
+    <div class="card" style="height:118px"><div class="bar"></div><b>Ригели и диагонали</b>Ригели по контуру каждые 0,5 м; диагонали в крайних пролётах, на противоположных гранях — навстречу</div>
+    <div class="card" style="height:118px"><div class="bar" style="background:var(--orange)"></div><b>Перила и бортики</b>Только на наружном краю настила: у балкона перила на общей стороне снимаются сами</div>
+    <div class="card" style="height:118px"><div class="bar" style="background:var(--blue)"></div><b>Входная группа</b>Вход с лестницей на передней грани; закрыт уширением — переносится на другую сторону</div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">17</div>
+</div>
+
+<!-- 16 НОМЕР ИС -->
+<div class="slide">
+  <div class="eyebrow">Основная надпись</div>
+  <h1 class="s">Номер ИС и надписи собираются автоматически</h1>
+  <div style="font-family:'DejaVu Sans Mono';font-size:30px;margin-top:46px;letter-spacing:.01em">П1-02 - Новойл - Ц№2-36-1-2 - ИС2180 - 2026</div>
+  <div style="display:grid;grid-template-columns:1.1fr 1.1fr 1.6fr 1.1fr .8fr;gap:10px;margin-top:20px">
+    <div style="border-top:3px solid var(--teal);padding-top:8px"><b>Префикс</b><div style="font-size:10.5px;color:var(--ink2)">задаётся в настройках</div></div>
+    <div style="border-top:3px solid var(--orange);padding-top:8px"><b>Завод</b><div style="font-size:10.5px;color:var(--ink2)">краткое имя; полное — в надписи</div></div>
+    <div style="border-top:3px solid var(--blue);padding-top:8px"><b>Цех и установка</b><div style="font-size:10.5px;color:var(--ink2)">«Цех каталитического крекинга» → ЦКК</div></div>
+    <div style="border-top:3px solid var(--gray);padding-top:8px"><b>Номер</b><div style="font-size:10.5px;color:var(--ink2)">пачкой, следующий подставляется сам</div></div>
+    <div style="border-top:3px solid var(--gray);padding-top:8px"><b>Год</b><div style="font-size:10.5px;color:var(--ink2)">из настроек</div></div>
+  </div>
+  <p style="color:var(--ink2);margin-top:44px;max-width:700px">В шаблон вписываются дата, номер акта, номер ИС, завод и место, таблица габаритов с площадью — всё из данных акта.</p>
+  <div class="pn"><img src="a/logo.svg">18</div>
+</div>
+
+<!-- 17 УСТАНОВКА -->
+<div class="slide">
+  <div class="eyebrow">Установка</div>
+  <h1 class="s">Один установщик — и программа готова к работе</h1>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px">
+    <div class="card" style="height:130px"><b>Всё внутри</b>Шаблон чертежа и спецификация уже встроены. Python, Node.js и другие программы не нужны — только nanoCAD.</div>
+    <div class="card" style="height:130px"><b>Данные у вас</b>Акты, планы и настройки хранятся на компьютере пользователя. Резервная копия — одна папка.</div>
+    <div class="card" style="height:130px"><b>Работает и без nanoCAD</b>Акты, расчёт и спецификация доступны без nanoCAD; он нужен только для построения чертежа.</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+    <div class="card" style="height:110px;background:var(--info)"><b>Демо-версия</b>Можно выдать сборку с ограниченным сроком: в шапке видно «Демо до …», после даты программа закрывается.</div>
+    <div class="card" style="height:110px;background:var(--warn)"><b>Требования</b>Windows 10 или 11 и установленный nanoCAD. Для авто-режима с PDF — один раз выключить открытие PDF после печати.</div>
+  </div>
+  <div class="pn"><img src="a/logo.svg">19</div>
+</div>
+
+<!-- 18 -->
+<div class="slide" style="background:var(--fill)">
+  <img src="a/logo.svg" style="width:56px;height:56px;margin-top:20px">
+  <h1 style="font-size:46px;margin-top:70px">Меньше рутины —<br>больше готовых схем</h1>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px">
+    <div class="card" style="background:#fff"><b>Внести акты</b>реквизиты, конструкции, план</div>
+    <div class="card" style="background:#fff"><b>Назначить номера ИС</b>одной кнопкой для всей пачки</div>
+    <div class="card" style="background:#fff"><b>Нажать «Авто»</b>вся очередь строится сама</div>
+    <div class="card" style="background:#fff"><b>Забрать файлы</b>DWG и PDF в папке схем</div>
+    <div class="card" style="background:#fff"><b>Смотреть итог</b>схемы по дням в «Аналитике»</div>
+  </div>
+  <div class="pn">TAIS · версия 0.1</div>
+</div>
+</body></html>

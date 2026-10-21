@@ -1,0 +1,8 @@
+{
+  "appId": "ru.tais.mobile",
+  "appName": "TAIS",
+  "webDir": "dist",
+  "android": {
+    "adjustMarginsForEdgeToEdge": "auto"
+  }
+}
