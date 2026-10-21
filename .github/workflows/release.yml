@@ -1,0 +1,98 @@
+# Выпуск версии: git tag v0.1.0 && git push origin v0.1.0
+# Собирает установщик Windows и APK для Android и публикует их в Releases.
+name: Выпуск
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    name: Установщик Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Сборка (build.ps1)
+        shell: powershell
+        env:
+          # на серверах GitHub зеркало не нужно — берём инструменты electron-builder с GitHub
+          ELECTRON_BUILDER_BINARIES_MIRROR: https://github.com/electron-userland/electron-builder-binaries/releases/download/
+        run: |
+          python -m venv .venv
+          powershell -ExecutionPolicy Bypass -File build.ps1
+          $setup = Get-ChildItem Desktop\dist -Filter "TAIS Setup *.exe" | Select-Object -First 1
+          $name = $setup.Name -replace ' ', '-'
+          Move-Item $setup.FullName "Desktop\dist\$name"
+          Write-Host "Установщик: $name"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: Desktop/dist/TAIS-Setup-*.exe
+
+  android:
+    name: APK для Android
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Интерфейс и тесты
+        working-directory: Mobile
+        run: |
+          npm ci
+          npm test
+          npm run build
+          npx cap sync android
+          cp -r assets/android-res/* android/app/src/main/res/
+
+      - name: Сборка APK
+        working-directory: Mobile/android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+          cp app/build/outputs/apk/debug/app-debug.apk ../TAIS-mobile.apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: Mobile/TAIS-mobile.apk
+
+  release:
+    name: Публикация в Releases
+    needs: [windows, android]
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: out
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: TAIS ${{ github.ref_name }}
+          files: out/*
+          body: |
+            **Windows:** скачайте `TAIS-Setup-*.exe`, запустите и следуйте установщику.
+            Если Windows пишет «Система Windows защитила ваш компьютер» — «Подробнее» → «Выполнить в любом случае».
+
+            **Android:** `TAIS-mobile.apk` — скопируйте на телефон и установите.
+
+            Инструкция: [Инструкция пользователя.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/Инструкция%20пользователя.md)

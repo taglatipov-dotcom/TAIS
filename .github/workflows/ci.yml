@@ -1,0 +1,41 @@
+# Проверка при каждом push: тесты сервера, сборка интерфейса, сверка мобильного генератора
+name: Тесты
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Python-зависимости
+        run: |
+          python -m venv .venv
+          .venv\Scripts\python -m pip install -r Backend\requirements.txt
+
+      - name: Тесты сервера и генератора
+        working-directory: Backend
+        run: ..\.venv\Scripts\python -m unittest -v
+
+      - name: Сборка интерфейса
+        working-directory: Frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Мобильный генератор против эталонов Python
+        working-directory: Mobile
+        run: |
+          npm ci
+          npm test
